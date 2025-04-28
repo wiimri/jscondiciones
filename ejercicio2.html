@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - Stickers</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            border: 1px solid black;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: white;
+        }
+        .stickers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+        .sticker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sticker img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        p {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ejercicio 2: Selección de Stickers</h2>
+        <div class="stickers">
+            <div class="sticker">
+                <img src="assets/img/bird.avif" alt="Sticker 1">
+                <input type="number" id="sticker1" min="0" max="10">
+            </div>
+            <div class="sticker">
+                <img src="assets/img/A.avif" alt="Sticker 2">
+                <input type="number" id="sticker2" min="0" max="10">
+            </div>
+            <div class="sticker">
+                <img src="assets/img/company.avif" alt="Sticker 3">
+                <input type="number" id="sticker3" min="0" max="10">
+            </div>
+        </div>
+        <button onclick="calcularStickers()">Verificar Stickers</button>
+        <p id="resultadoStickers"></p>
+        <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+    </div>
+
+    <script>
+        function calcularStickers() {
+            const s1 = parseInt(document.getElementById('sticker1').value) || 0;
+            const s2 = parseInt(document.getElementById('sticker2').value) || 0;
+            const s3 = parseInt(document.getElementById('sticker3').value) || 0;
+            const total = s1 + s2 + s3;
+
+            const resultado = document.getElementById('resultadoStickers');
+
+            if (s1 > 10 || s2 > 10 || s3 > 10) {
+                resultado.innerText = "No puedes pedir más de 10 stickers por tipo.";
+            } else if (total <= 10) {
+                resultado.innerText = `Llevas ${total} stickers.`;
+            } else {
+                resultado.innerText = "Llevas demasiados stickers en total.";
+            }
+        }
+
+        function volverAlMenu() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

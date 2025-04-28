@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 - Imagen con Borde</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            border: 1px solid black;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: white;
+        }
+        .borde-rojo {
+            border: 2px solid red;
+        }
+        img {
+            cursor: pointer;
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ejercicio 1: Imagen con Borde</h2>
+        <img id="imagenBorde" src="assets/img/company.avif" alt="Imagen de prueba">
+        <br>
+        <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+    </div>
+
+    <script>
+        const imagen = document.getElementById('imagenBorde');
+        imagen.addEventListener('click', () => {
+            imagen.classList.toggle('borde-rojo');
+        });
+
+        function volverAlMenu() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
